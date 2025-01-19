@@ -5,9 +5,11 @@ export const Main = () => {
     const [titles, setTitles] = useState([])
     const [newTitle, setNewTitle] = useState('')
 
+
     const handlerSubmit = (e) => {
         e.preventDefault();
-        let blog = [newTitle, ...titles]
+
+        const blog = [newTitle, ...titles]
         setTitles(blog)
         setNewTitle('')
     }
@@ -18,9 +20,18 @@ export const Main = () => {
 
     }
 
+    const modifyTitle = (index) => {
+        const modifiedList = [...titles]
+        modifiedList[index] = newTitle;
+        setTitles(modifiedList)
+        setNewTitle('')
+
+    }
+
     return (
         <main className="container flex-column">
-            <h1>FORM 1</h1>
+            <h1>FORM</h1>
+            <h2>Per modificare un elemento della lista, inserisci prima il nuovo titolo, seleziona poi dove sostituirlo</h2>
             <form action="#" onSubmit={handlerSubmit}>
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" placeholder="Titolo Blog" aria-label="ciao" aria-describedby="button-addon2" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} />
@@ -30,14 +41,12 @@ export const Main = () => {
             {titles.length < 1 ? <h1>Nessun titolo inserito</h1> : (
                 <ul className="list-group">
                     {titles.map((item, index) => (
-                        <li key={index} className="list-group-item d-flex justify-content-between align-items-center">{item} <i className="fa-solid fa-trash" onClick={() => deleteTitle(index)}></i></li>
-
+                        <>
+                            <li key={index} className="list-group-item d-flex justify-content-between align-items-center ">{item} <i className="fa-solid fa-trash pe-2" onClick={() => deleteTitle(index)}></i><i className="fa-solid fa-pen pe-2" onClick={() => modifyTitle(index)}></i></li>
+                        </>
                     ))}
                 </ul>
             )}
-
-
-
         </main>
     )
 }
