@@ -31,7 +31,7 @@ export const Main = () => {
     return (
         <main className="container flex-column">
             <h1>FORM</h1>
-            <h2>Per modificare un elemento della lista, inserisci prima il nuovo titolo, seleziona poi dove sostituirlo</h2>
+            <h2>Per aggiornare un elemento della lista, inserisci prima il nuovo titolo, seleziona poi dove sostituirlo</h2>
             <form action="#" onSubmit={handlerSubmit}>
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" placeholder="Titolo Blog" aria-label="ciao" aria-describedby="button-addon2" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} />
