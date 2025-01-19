@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border: 2px solid black;
+  max-width: 400px;
+  min-height: 500px;
+  background-image: linear-gradient(to right, #cb356b, #bd3f32);
+
+}
