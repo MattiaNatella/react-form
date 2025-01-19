@@ -19,11 +19,12 @@ export const Main = () => {
     }
 
     return (
-        <main className="container">
+        <main className="container flex-column">
+            <h1>FORM 1</h1>
             <form action="#" onSubmit={handlerSubmit}>
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" placeholder="Titolo Blog" aria-label="ciao" aria-describedby="button-addon2" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} />
-                    <button className="btn btn-outline-secondary" type="button submit" id="button-addon2">Invia</button>
+                    <button className="btn bg-primary text-white" type="button submit" id="button-addon2">Invia</button>
                 </div>
             </form>
             {titles.length < 1 ? <h1>Nessun titolo inserito</h1> : (
